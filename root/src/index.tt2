@@ -1,0 +1,13 @@
+[% META title = "Welcome to the Address Book" %]
+<p>Here you will find All Things Address.</p>
+<p>From here, you can:
+  <ul>
+    <li>
+      <a href="[% c.uri_for_action('/person/list') %]">Look at all people</a>
+    </li>
+    <li>
+      <a href="[% c.uri_for_action('/person/add') %]">Add a new person</a>
+    </li>
+  </ul>
+</p>
+
