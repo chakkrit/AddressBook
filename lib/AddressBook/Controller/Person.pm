@@ -31,6 +31,7 @@ sub list : Local {
     my ($self, $c) = @_;
     my $people = $c->model('AddressDB::Person');
     $c->stash->{people} = $people;
+    $c->stash( template => 'person/list.tt2' );
 }
 
 sub delete : Local {
@@ -38,13 +39,14 @@ sub delete : Local {
     my $person = $c->model('AddressDB::Person')->find({id => $id});
     $c->stash->{person} = $person;
     if($person) {
-      $c->stash->{message} = 'Delete '.$person->name;
+      $c->stash->{message} = 'Delete '. $person->name;
       $person->delete;
     } else {
       $c->response->status(404);
       $c->stash->{error} = "No person $id";
     }
-    $c->forward('list');
+
+    $c->detach('list');
 }
 
 =head1 AUTHOR
