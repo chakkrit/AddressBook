@@ -20,8 +20,6 @@
    PROCESS config/col
          + config/url;
 
-   # set defaults for variables, etc.
-   DEFAULT
-     message = 'There is no message';
+   
 
 -%]

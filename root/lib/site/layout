@@ -1,6 +1,10 @@
 <div id="header">[% PROCESS site/header %]</div>
 
 <div id="content">
+[% IF error %]
+<p><span class="error">[% error | html %]</span></p> [% END %]
+[% IF message %]
+<p><span class="message">[% message | html %]</span></p> [% END %]
 [% content %]
 </div>
 
