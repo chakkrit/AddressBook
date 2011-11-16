@@ -33,6 +33,19 @@ sub list : Local {
     $c->stash->{people} = $people;
 }
 
+sub delete : Local {
+    my ($self, $c, $id) = @_;
+    my $person = $c->model('AddressDB::Person')->find({id => $id});
+    $c->stash->{person} = $person;
+    if($person) {
+      $c->stash->{message} = 'Delete '.$person->name;
+      $person->delete;
+    } else {
+      $c->response->status(404);
+      $c->stash->{error} = "No person $id";
+    }
+    $c->forward('list');
+}
 
 =head1 AUTHOR
 
