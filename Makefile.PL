@@ -15,11 +15,13 @@ requires 'Catalyst::Plugin::Static::Simple';
 requires 'Catalyst::Action::RenderView';
 requires 'Catalyst::View::TT';
 requires 'Catalyst::Model::DBIC::Schema';
+requires 'MooseX::MarkAsMethods';
 requires 'Moose';
 requires 'namespace::autoclean';
 requires 'Config::General'; # This should reflect the config file format you've chosen
                  # See Catalyst::Plugin::ConfigLoader for supported formats
 test_requires 'Test::More' => '0.88';
+build_requires 'Catalyst::Devel';
 catalyst;
 
 install_script glob('script/*.pl');
