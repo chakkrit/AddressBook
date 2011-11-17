@@ -1,0 +1,4 @@
+[% META title = "Address" %]
+<p>Here's some text explaining the form below. Only the "location"
+field is required, etc., etc.</p>
+[% FormBuilder.render %]
