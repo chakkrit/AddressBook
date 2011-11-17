@@ -15,6 +15,7 @@ requires 'Catalyst::Plugin::Static::Simple';
 requires 'Catalyst::Action::RenderView';
 requires 'Catalyst::View::TT';
 requires 'Catalyst::Model::DBIC::Schema';
+requires 'Catalyst::Controller::FormBuilder';
 requires 'MooseX::MarkAsMethods';
 requires 'Moose';
 requires 'namespace::autoclean';
