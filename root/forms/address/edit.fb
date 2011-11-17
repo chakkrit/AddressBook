@@ -1,0 +1,21 @@
+name: address_edit
+method: POST
+title: Address
+fields:
+  location:
+    label: Location
+    type: select
+    options: Home, Office, Mobile
+    other: 1
+    required: 1
+  postal:
+    label: Mailing Address type: textarea
+    rows: 4
+    cols: 60
+  phone:
+    label: Phone Number
+    validate: PHONE
+  email:
+    label: E-Mail Address
+    validate: EMAIL
+
