@@ -69,6 +69,11 @@ sub edit : Local Form {
   }
 }
 
+sub add : Local Form('/person/edit'){
+  my ($self, $c) = @_;
+  $c->go('edit', []);
+}
+
 =head1 AUTHOR
 
 chakkrit,,,
