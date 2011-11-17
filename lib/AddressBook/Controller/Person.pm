@@ -3,6 +3,7 @@ use Moose;
 use namespace::autoclean;
 
 BEGIN {extends 'Catalyst::Controller'; }
+extends 'Catalyst::Controller::FormBuilder';
 
 =head1 NAME
 
@@ -49,6 +50,25 @@ sub delete : Local {
     $c->detach('list');
 }
 
+sub edit : Local Form {
+  my ($self, $c, $id) = @_;
+  my $form = $self->formbuilder;
+  my $person = $c->model('AddressDB::Person')->find_or_new(id => $id);
+  if ($form->submitted && $form->validate) {
+    $person->firstname($form->field('firstname'));
+    $person->lastname($form->field('lastname'));
+    $person->update_or_insert;
+    $c->stash->{message} = ($id>0?'Updated':'Added').$person->name;
+    $c->detach('list');
+  } else {
+    if(!$id){
+      $c->stash->{message} = 'Adding a new person';
+    }
+    $form->field(name => 'firstname', value => $person->firstname);
+    $form->field(name => 'lastname', value => $person->lastname);
+  }
+}
+
 =head1 AUTHOR
 
 chakkrit,,,
@@ -60,6 +80,6 @@ it under the same terms as Perl itself.
 
 =cut
 
-__PACKAGE__->meta->make_immutable;
+#__PACKAGE__->meta->make_immutable;
 
 1;
