@@ -1,0 +1,3 @@
+[% META title = "Edit a person" %]
+[%FormBuilder.render%]
+
