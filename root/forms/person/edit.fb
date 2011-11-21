@@ -1,0 +1,15 @@
+name: person_edit
+method: post
+fields:
+  firstname:
+    label: First Name
+    type: text
+    size: 30
+    required: 1
+  lastname:
+    label: Last Name
+    type: text
+    size: 30
+
+    required: 1
+
