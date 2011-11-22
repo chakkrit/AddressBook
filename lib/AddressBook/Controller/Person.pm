@@ -40,14 +40,13 @@ sub delete : Local {
     my $person = $c->model('AddressDB::Person')->find({id => $id});
     $c->stash->{person} = $person;
     if($person) {
-      $c->stash->{message} = 'Delete '. $person->name;
+      $c->flash->{message} = 'Delete ' . $person->name;
       $person->delete;
     } else {
-      $c->response->status(404);
-      $c->stash->{error} = "No person $id";
+      $c->flash->{error} = "No person $id";
     }
-
-    $c->detach('list');
+    $c->response->redirect($c->uri_for_action('person/list'));
+    $c->detach();
 }
 
 sub edit : Local Form {
@@ -58,7 +57,7 @@ sub edit : Local Form {
     $person->firstname($form->field('firstname'));
     $person->lastname($form->field('lastname'));
     $person->update_or_insert;
-    $c->stash->{message} = ($id>0?'Updated':'Added').$person->name;
+    $c->stash->{message} = ($id > 0 ?'Updated ':'Added ').$person->name;
     $c->detach('list');
   } else {
     if(!$id){

@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More tests => 13;
+use Test::More tests => 14;
 use Test::WWW::Mechanize::Catalyst;
 
 BEGIN { $ENV{ADDRESSBOOK_CONFIG_LOCAL_SUFFIX}="test" }
@@ -46,7 +46,7 @@ $mech->content_like(qr/Lee Mouse/, 'add one more person to database');
 #-----------------------------------------------------------------
 # Test for Delete method 
 $mech->get_ok('/person/delete/2', 'delete Lee');
-#$mech->content_lacks(qr/Lee/, 'deleteed a person');
+$mech->content_like(qr/Delete Lee/, 'deleteed a person');
 
 #-----------------------------------------------------------------
 
