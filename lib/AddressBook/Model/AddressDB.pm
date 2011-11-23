@@ -5,7 +5,7 @@ use strict;
 use base 'Catalyst::Model::DBIC::Schema';
 
 __PACKAGE__->config(
-    schema_class => 'AddressBook::Schema::AddressDB',    
+    schema_class => 'AddressBook::Schema::AddressDB',
     connect_info => {
         dsn => 'dbi:SQLite:database.db',
         user => '',
