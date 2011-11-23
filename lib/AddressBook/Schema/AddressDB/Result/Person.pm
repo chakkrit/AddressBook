@@ -89,18 +89,14 @@ __PACKAGE__->meta->make_immutable;
 __PACKAGE__->has_many(
   address => 'AddressBook::Schema::AddressDB::Result::Address', 'person', {cascading_delete => 1} );
 
+=head2 name
+
+  Combine a firstname and a lastname tobe a fullname
+
+=cut
+
 sub name {
   my $self = shift;
   return $self->firstname.' '.$self->lastname;
 }
-
-=head1 METHOD NAME
-
-name 
-
-=head1 DESCRIPTION
-
-This method will combine a firstname and a lastname tobe a fullname 
-
-=cut
 1;
