@@ -4,6 +4,16 @@ package AddressBook::Schema::AddressDB;
 # Created by DBIx::Class::Schema::Loader
 # DO NOT MODIFY THE FIRST PART OF THIS FILE
 
+=head1 NAME
+
+AddressBook::Schema::AddressDB
+
+=head1 DESCRIPSION
+
+This is the schema that the Model points to
+
+=cut
+
 use Moose;
 use MooseX::MarkAsMethods autoclean => 1;
 extends 'DBIx::Class::Schema';
