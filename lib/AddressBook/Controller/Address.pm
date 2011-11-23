@@ -18,20 +18,22 @@ Catalyst Controller.
 =cut
 
 
-=head2 index
+=head2 add
+
+add new address data to database
 
 =cut
-
-#sub index :Path :Args(0) {
-#    my ( $self, $c ) = @_;
-
-#    $c->response->body('Matched AddressBook::Controller::Address in Address.');
-#}
 
 sub add : Local Form('/address/edit'){
   my ($self, $c, $person_id) = @_;
   $c->go('edit', [undef, $person_id]);
 }
+
+=head2 edit
+
+update address data in database
+
+=cut
 
 sub edit : Local Form {
   my ($self, $c, $address_id, $person_id) = @_;
@@ -74,6 +76,12 @@ sub edit : Local Form {
     $form->field(name => 'email', value => $address->email);
   } 
 }
+
+=head2 delete
+
+delete address data in database
+
+=cut
 
 sub delete : Local {
   my ($self, $c, $address_id) = @_;
