@@ -93,4 +93,14 @@ sub name {
   my $self = shift;
   return $self->firstname.' '.$self->lastname;
 }
+
+=head1 NAME
+
+A method to make a fullname
+
+=head1 DESCRIPTION
+
+This method will combine a firstname and a lastname tobe a fullname 
+
+=cut
 1;
