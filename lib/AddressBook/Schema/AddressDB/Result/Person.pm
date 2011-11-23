@@ -94,9 +94,9 @@ sub name {
   return $self->firstname.' '.$self->lastname;
 }
 
-=head1 NAME
+=head1 METHOD NAME
 
-A method to make a fullname
+name 
 
 =head1 DESCRIPTION
 
