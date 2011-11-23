@@ -88,7 +88,7 @@ sub delete : Local {
   my $address = $c->model('AddressDB::Address')->find({id => $address_id});
   if ($address) {
     $c->stash->{message} = 'Deleted ' . $address->person->name. q{'s }. $address->location. ' address';
-    $address->delete; 
+    $address->delete;
   } else {
     $c->stash->{error} = 'No such address';
   }
