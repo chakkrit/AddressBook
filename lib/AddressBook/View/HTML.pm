@@ -1,5 +1,6 @@
 package AddressBook::View::HTML;
 
+use warnings;
 use strict;
 use base 'Catalyst::View::TT';
 
