@@ -74,7 +74,7 @@ sub edit : Local Form {
     $form->field(name => 'postal', value => $address->postal);
     $form->field(name => 'phone', value => $address->phone);
     $form->field(name => 'email', value => $address->email);
-  } 
+  }
 }
 
 =head2 delete
@@ -87,8 +87,8 @@ sub delete : Local {
   my ($self, $c, $address_id) = @_;
   my $address = $c->model('AddressDB::Address')->find({id => $address_id});
   if ($address) {
-  $c->stash->{message} = 'Deleted ' . $address->person->name. q{'s }. $address->location. ' address';
-  $address->delete; 
+    $c->stash->{message} = 'Deleted ' . $address->person->name. q{'s }. $address->location. ' address';
+    $address->delete; 
   } else {
     $c->stash->{error} = 'No such address';
   }
