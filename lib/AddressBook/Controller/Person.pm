@@ -35,6 +35,20 @@ sub list : Local {
     $c->stash( template => 'person/list.tt2' );
 }
 
+=head1 NAME
+
+list
+
+=head1 DESCRIPTION
+
+list method
+
+=head1 METHODS
+
+This method shows List of people 
+
+=cut
+
 sub delete : Local {
     my ($self, $c, $id) = @_;
     my $person = $c->model('AddressDB::Person')->find({id => $id});
@@ -48,6 +62,20 @@ sub delete : Local {
     $c->response->redirect($c->uri_for_action('person/list'));
     $c->detach();
 }
+
+=head1 NAME
+
+delete
+
+=head1 DESCRIPTION
+
+delete method
+
+=head1 METHODS
+
+This method will delete people data from database
+
+=cut
 
 sub edit : Local Form {
   my ($self, $c, $id) = @_;
@@ -68,10 +96,38 @@ sub edit : Local Form {
   }
 }
 
+=head1 NAME
+
+edit
+
+=head1 DESCRIPTION
+
+edit method
+
+=head1 METHODS
+
+This method will edit people data in database
+
+=cut
+
 sub add : Local Form('/person/edit'){
   my ($self, $c) = @_;
   $c->go('edit', []);
 }
+
+=head1 NAME
+
+add
+
+=head1 DESCRIPTION
+
+add method
+
+=head1 METHODS
+
+this method will get people data and add the data to database
+
+=cut
 
 =head1 AUTHOR
 
