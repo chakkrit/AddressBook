@@ -1,5 +1,7 @@
 #!/usr/bin/env perl
 
+use warnings;
+use strict;
 use Catalyst::ScriptRunner;
 Catalyst::ScriptRunner->run('AddressBook', 'CGI');
 
