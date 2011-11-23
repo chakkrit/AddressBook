@@ -18,15 +18,11 @@ Catalyst Controller.
 =cut
 
 
-=head2 index
+=head2 list
+
+Show list of people in database
 
 =cut
-
-#sub index :Path :Args(0) {
-#    my ( $self, $c ) = @_;
-
-#    $c->response->body('Matched AddressBook::Controller::Person in Person.');
-#}
 
 sub list : Local {
     my ($self, $c) = @_;
@@ -35,17 +31,9 @@ sub list : Local {
     $c->stash( template => 'person/list.tt2' );
 }
 
-=head1 NAME
+=head2 delete
 
-list
-
-=head1 DESCRIPTION
-
-list method
-
-=head1 METHODS
-
-This method shows List of people 
+delete people data from database
 
 =cut
 
@@ -63,17 +51,9 @@ sub delete : Local {
     $c->detach();
 }
 
-=head1 NAME
+=head2 edit
 
-delete
-
-=head1 DESCRIPTION
-
-delete method
-
-=head1 METHODS
-
-This method will delete people data from database
+edit people data in database
 
 =cut
 
@@ -96,17 +76,9 @@ sub edit : Local Form {
   }
 }
 
-=head1 NAME
+=head2 add
 
-edit
-
-=head1 DESCRIPTION
-
-edit method
-
-=head1 METHODS
-
-This method will edit people data in database
+add new people data to database 
 
 =cut
 
@@ -114,20 +86,6 @@ sub add : Local Form('/person/edit'){
   my ($self, $c) = @_;
   $c->go('edit', []);
 }
-
-=head1 NAME
-
-add
-
-=head1 DESCRIPTION
-
-add method
-
-=head1 METHODS
-
-this method will get people data and add the data to database
-
-=cut
 
 =head1 AUTHOR
 
