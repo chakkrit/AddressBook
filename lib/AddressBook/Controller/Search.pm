@@ -80,7 +80,7 @@ to make command for searching
 =cut
 
 sub cross {
-  my $columns = shift || []; 
+  my $columns = shift || [];
   my $tokens = shift || [];
   map{s/%/\\%/g}@$tokens;
   my @result;
