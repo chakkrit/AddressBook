@@ -99,4 +99,6 @@ sub name {
   my $self = shift;
   return $self->firstname.' '.$self->lastname;
 }
+
+__PACKAGE__->add_unique_constraint(name => [qw/firstname lastname/]);
 1;
