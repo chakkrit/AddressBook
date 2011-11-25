@@ -34,10 +34,10 @@ sub search : Global Form {
   my $result;
   if ('Names' eq $form->field('domain')) {
     $result = $c->forward('search_names', \@tokens);
-    $c->stash->( template => 'search/name_results.tt2');
+    $c->stash->{template} = 'search/name_results.tt2';
   } else {
     $result = $c->forward('search_addresses', \@tokens);
-    $c->stash->( template => 'search/address_results.tt2');
+    $c->stash->{template} = 'search/address_results.tt2';
   }
   my $page = $c->request->param('page');
   $page = 1 if($page !~ /^\d+$/);
@@ -57,7 +57,7 @@ sub search_addresses : Private {
   my ($self, $c, @tokens) = @_;
   my @address_fields = qw/postal phone email location/;
   @address_fields = cross(\@address_fields, \@tokens);
-  return $c->model('AddressDB::Addresses')->search(\@address_fields);
+  return $c->model('AddressDB::Address')->search(\@address_fields);
 }
 
 =head2 search_names
@@ -75,7 +75,7 @@ sub search_names : Private {
 
 =head2 cross
 
-
+to make command for searching
 
 =cut
 
