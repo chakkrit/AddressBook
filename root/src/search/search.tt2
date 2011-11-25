@@ -1,0 +1,3 @@
+[% META title="Search" %]
+Search for people or addresses: 
+[% FormBuilder.render %]

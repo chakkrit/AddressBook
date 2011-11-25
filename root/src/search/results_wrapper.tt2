@@ -1,0 +1,17 @@
+<h2>Search for [% query | html %]</h2>
+<p>Displaying entries [% pager.first %]-[% pager.last %] of [%
+pager.total_entries %]
+</p>
+<ol start="[% pager.first %]"> [% content %]
+</ol>
+<hr /> Navigation:
+&lt;&lt;
+<a href="[% c.req.uri_with({ page => pager.first_page }) %]">First</a>
+<a href="[% c.req.uri_with({ page => pager.previous_page
+})%]">Previous</a>
+|
+<a href="[% c.req.uri_with({ page => pager.next_page })%]">Next</a>
+<a href="[% c.req.uri_with({ page => pager.last_page }) %]">Last</a>
+&gt;&gt;
+or <a href="[% c.uri_for_action('/search/search') %]">Search again</a>
+

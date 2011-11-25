@@ -1,0 +1,6 @@
+[% META title = "Search results" %]
+[% WRAPPER "search/results_wrapper.tt2" %] [% WHILE (person = result.
+next) %]
+<li>[% INCLUDE person_fragment.tt2 %]</li> [% END %]
+[% END %]
+

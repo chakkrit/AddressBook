@@ -1,0 +1,9 @@
+[% META title = "Search results" %]
+[% WRAPPER "search/results_wrapper.tt2" %]
+[% WHILE (address = result.next) %]
+<li>[% address.location | html %] address for [% address.person.name
+%]<br />
+[% INCLUDE address_fragment.tt2 %]
+</li>
+[% END %] [% END %]
+
